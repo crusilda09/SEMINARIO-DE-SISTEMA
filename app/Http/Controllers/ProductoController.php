@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Exception;
 use App\Http\Requests\StoreProductoRequest;
+use Illuminate\Support\Facades\Storage;
+
 
 class ProductoController extends Controller
 {
@@ -18,7 +20,9 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        return view('producto.index');
+        $productos = Producto::with(['categorias.caracteristica','marca.caracteristica','presentacione.caracteristica'])->latest()->get();
+    
+        return view('producto.index',compact('productos'));
     }
 
     /**

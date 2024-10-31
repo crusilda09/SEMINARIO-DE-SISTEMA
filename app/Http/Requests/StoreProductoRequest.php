@@ -11,7 +11,7 @@ class StoreProductoRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -43,7 +43,11 @@ class StoreProductoRequest extends FormRequest
     public function messages()
     {
         return [
-            'codigo.required' => 'Se necesita un campo código'
+            'codigo.required' => 'Se necesita un campo código',
+            'categorias.required' => 'Se necesita un campo categorias',
+            'nombre.required' => 'Se necesita un campo nombre',
+            'marca_id.required' => 'Se necesita un campo marca',
+            'presentacione_id.required' => 'Se necesita un campo código presentaciones'
         ];
     }
 }
